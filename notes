@@ -1,0 +1,62 @@
+1. add Policies to EKS node worker and cluster - putmetric - cloudwatch         ------------ Completed
+2. change the name of the cluster and resources.         ------------ Completed
+3. automate s3 and dynamodb for states         ------------ partial
+4. create .gitignore for git commit add .terrform folders         ------------ partial
+5. create Readme.md file
+6. create a shell file to run the Complete sets of components of AWS
+7. write a shell script for Ec2 installions         ------------ partial
+8. Write automation for deployment of services
+9. upgrade the cluster version         ------------ Completed
+10. manage deletion of load balancer
+11. server properties into MSK         ------------ Completed
+12. bucket policies and acls         ------------ Completed
+13. give proper channels to tags 
+14. parameter group for elasticache
+15 add enhanced monitoring rds - https://github.com/cloudposse/terraform-aws-rds-cluster          ------------ Completed
+16. create multiple folder inside s3
+17. need to work on segregation between eks and vpc          ------------ Completed
+18. key managment in ec2
+19. dynamodb autoscaling  - https://omerkarabacak.medium.com/creating-auto-scaling-enabled-aws-dynamodb-table-with-terraform-843072c29a84
+
+resource "aws_dynamodb_table" "dynamodb-terraform-state-locking" {
+ name = "terraform-state-lock"
+ hash_key = "LockID"
+ read_capacity = 10
+ write_capacity = 10
+ attribute {
+   name = "LockID"
+   type = "S"
+ }
+ tags {
+   Name = "DynamoDB Terraform State Locking"
+ }
+}
+
+https://itnext.io/build-an-eks-cluster-with-terraform-d35db8005963
+https://aruva.medium.com/mindmaps-using-chatgpt-and-plantuml-fb38c1d84a19
+https://github.com/faizanbashir/aws-elasticache-terraform-module
+https://gitlab.lukapo.com/terraform/aws/module.elasticache-redis/-/blob/master/main.tf
+https://github.com/tmknom/terraform-aws-elasticache-redis/tree/master/examples/complete
+
+https://github.com/clowdhaus/terraform-aws-msk-kafka-cluster/blob/main/examples/complete/main.tf
+https://medium.com/devops-mojo/terraform-provision-amazon-eks-cluster-using-terraform-deploy-create-aws-eks-kubernetes-cluster-tf-4134ab22c594
+
+https://github.com/cloudposse/terraform-aws-rds-cluster
+https://antonputra.com/terraform/how-to-create-eks-cluster-using-terraform/#create-eks-cluster-using-terraform
+https://antonputra.com/amazon/create-aws-eks-fargate-using-terraform/#create-aws-eks-fargate-using-terraform
+https://verifa.io/blog/aws-load-balancer-controller-with-existing-alb/index.html
+https://github.com/bailey84j/terraform-kubernetes-fluentd-cloudwatch
+https://tf-eks-workshop.workshop.aws/500_eks-terraform-workshop/555_cluster/cluster-tf.html
+https://www.koding.com/docs/terraform/providers/aws/r/db_subnet_group.html/
+https://aws.amazon.com/blogs/containers/container-insights-for-amazon-eks-support-aws-distro-for-opentelemetry-collector/
+https://github.com/bootlabstech/terraform-aws-fully-loaded-eks-cluster/tree/v1.0.7/modules/kubernetes-addons
+
+
+
+data "aws_subnet_ids" "private_subnet_ids" {
+  vpc_id            = "${module.vpc.vpc_id}"
+}
+data "aws_subnet" "private_subnet" {
+  count = "${length(data.aws_subnet_ids.private_subnet_ids.ids)}"
+  id    = "${data.aws_subnet_ids.private_subnet_ids.ids[count.index]}"
+}

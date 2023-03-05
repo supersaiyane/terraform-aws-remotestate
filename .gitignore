@@ -1,0 +1,3 @@
+./1_Infra/.terraform/**
+./2_Automation/.terraform/**
+./3_Services/.terraform/**

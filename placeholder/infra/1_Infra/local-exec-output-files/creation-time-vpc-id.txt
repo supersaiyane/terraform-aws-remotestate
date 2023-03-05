@@ -1,0 +1,5 @@
+VPC created on Tue Feb 28 05:24:50 PM IST 2023 and VPC ID: vpc-0d8ba1f84c5683be1
+VPC created on `date` and VPC ID: vpc-081ce49c97312985b 
+VPC created on `date` and VPC ID: vpc-0a039021895969573 
+VPC created on `date` and VPC ID: vpc-03bdb03de525c9077 
+VPC created on `date` and VPC ID: vpc-0bae71848b132d3af 
