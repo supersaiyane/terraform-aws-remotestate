@@ -77,8 +77,8 @@ resource "aws_db_instance" "stage_rds" {
   max_allocated_storage = "100"
   engine_version = "14.4"
   db_name = "pfv3stagedb"
-  username = "pfvsdfsdf2frwedasdffgshgfbncdsfbadsfgsfasfmin"
-  password = "tpM6ukNcxvxcvfgrrJsdfbxcvasdsdaf9fsdUJDsdfx"
+  username = "pfv2dbadmin"
+  password = "tpM6ukNrrJ96UJDx"
   db_subnet_group_name = aws_db_subnet_group.db_subnet_group.id
   vpc_security_group_ids  = toset(aws_security_group.stage-rds-sg.*.id)
   #project_name = "pfv2-stage"
